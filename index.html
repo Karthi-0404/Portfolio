@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hariprakash P - Cybersecurity Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Inter Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+    <!-- html2pdf.js for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .skill-bar {
+            width: 0;
+            transition: width 1.5s ease-out;
+        }
+
+        .typing-effect::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent; }
+            50% { border-color: white; }
+        }
+
+        /* Hero section specific styles for animation */
+        #hero .animate-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+        #hero h1 { animation-delay: 0.2s; }
+        #hero h2 { animation-delay: 0.7s; }
+        #hero .animated-bar {
+            width: 0;
+            height: 4px;
+            background-color: #38bdf8;
+            margin-top: 1rem;
+            animation: expandWidth 1.5s ease-out forwards;
+            animation-delay: 1.2s;
+        }
+        @keyframes expandWidth {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900 bg-opacity-70 backdrop-blur-md fixed top-0 w-full z-50 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold text-sky-400">Hariprakash P</a>
+            <div class="space-x-4 hidden md:block">
+                <a href="#about" class="hover:text-sky-400 transition-colors">About</a>
+                <a href="#certifications" class="hover:text-sky-400 transition-colors">Certifications</a>
+                <a href="#skills" class="hover:text-sky-400 transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-sky-400 transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-sky-400 transition-colors">Contact</a>
+                <!-- New Download PDF button -->
+                <button id="download-pdf-button" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 px-4 rounded-xl transition-colors">
+                    Download as PDF
+                </button>
+            </div>
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-button" class="md:hidden text-2xl text-sky-400 focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 bg-opacity-90 backdrop-blur-md p-4 space-y-4 text-center">
+            <a href="#about" class="block py-2 hover:text-sky-400 transition-colors">About</a>
+            <a href="#certifications" class="block py-2 hover:text-sky-400 transition-colors">Certifications</a>
+            <a href="#skills" class="block py-2 hover:text-sky-400 transition-colors">Skills</a>
+            <a href="#projects" class="block py-2 hover:text-sky-400 transition-colors">Projects</a>
+            <a href="#contact" class="block py-2 hover:text-sky-400 transition-colors">Contact</a>
+            <!-- New Download PDF button for mobile -->
+            <button id="download-pdf-button-mobile" class="w-full bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 px-4 rounded-xl transition-colors mt-4">
+                Download as PDF
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center p-6 bg-cover bg-center" style="background-image: url('https://placehold.co/1200x800/0f172a/94a3b8?text=');">
+        <div class="text-center text-white bg-gray-900 bg-opacity-70 p-8 md:p-12 rounded-2xl shadow-2xl backdrop-blur-sm max-w-4xl w-full">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 animate-in">Hariprakash P</h1>
+            <div class="text-xl md:text-3xl font-semibold text-sky-400 animate-in">
+                <span id="job-title" class="typing-effect">Cybersecurity Student & Aspiring Ethical Hacker</span>
+            </div>
+            <div class="animated-bar mx-auto w-1/4"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-sky-400 fade-in">About Me</h2>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed fade-in">
+                I am a dedicated cybersecurity student with a passion for protecting digital assets. My journey into the world of ethical hacking and information security began with a curiosity for how systems work and a drive to secure them against malicious attacks. I am constantly expanding my knowledge in network security, penetration testing, and digital forensics. My goal is to leverage my skills to build a more secure digital future.
+            </p>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-sky-400 fade-in">Certifications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cert 1 -->
+                <div class="bg-gray-900 p-8 rounded-2xl shadow-xl hover:shadow-sky-500/50 transition-shadow duration-300 fade-in">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-shield-alt text-5xl text-sky-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-center">CompTIA Security+</h3>
+                    <p class="text-gray-400 text-center">
+                        This certification validates the baseline skills necessary to perform core security functions and pursue a career in IT security.
+                    </p>
+                </div>
+                <!-- Cert 2 -->
+                <div class="bg-gray-900 p-8 rounded-2xl shadow-xl hover:shadow-sky-500/50 transition-shadow duration-300 fade-in" style="animation-delay: 0.2s;">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-lock text-5xl text-sky-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-center">Certified Ethical Hacker (CEH)</h3>
+                    <p class="text-gray-400 text-center">
+                        Demonstrates proficiency in penetration testing and understanding of ethical hacking techniques.
+                    </p>
+                </div>
+                <!-- Cert 3 -->
+                <div class="bg-gray-900 p-8 rounded-2xl shadow-xl hover:shadow-sky-500/50 transition-shadow duration-300 fade-in" style="animation-delay: 0.4s;">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-network-wired text-5xl text-sky-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-center">Certified Information Systems Security Professional (CISSP)</h3>
+                    <p class="text-gray-400 text-center">
+                        A globally recognized standard of achievement that confirms an individual's knowledge in the field of information security.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-sky-400 fade-in">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Skill 1 -->
+                <div class="bg-gray-800 p-6 rounded-xl fade-in">
+                    <h3 class="text-xl font-bold mb-2">Network Security</h3>
+                    <div class="h-4 bg-gray-700 rounded-full">
+                        <div class="skill-bar h-full bg-sky-400 rounded-full" data-skill-level="90"></div>
+                    </div>
+                </div>
+                <!-- Skill 2 -->
+                <div class="bg-gray-800 p-6 rounded-xl fade-in" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-bold mb-2">Penetration Testing</h3>
+                    <div class="h-4 bg-gray-700 rounded-full">
+                        <div class="skill-bar h-full bg-sky-400 rounded-full" data-skill-level="85"></div>
+                    </div>
+                </div>
+                <!-- Skill 3 -->
+                <div class="bg-gray-800 p-6 rounded-xl fade-in" style="animation-delay: 0.4s;">
+                    <h3 class="text-xl font-bold mb-2">Cryptography</h3>
+                    <div class="h-4 bg-gray-700 rounded-full">
+                        <div class="skill-bar h-full bg-sky-400 rounded-full" data-skill-level="75"></div>
+                    </div>
+                </div>
+                <!-- Skill 4 -->
+                <div class="bg-gray-800 p-6 rounded-xl fade-in" style="animation-delay: 0.6s;">
+                    <h3 class="text-xl font-bold mb-2">Digital Forensics</h3>
+                    <div class="h-4 bg-gray-700 rounded-full">
+                        <div class="skill-bar h-full bg-sky-400 rounded-full" data-skill-level="80"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-sky-400 fade-in">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-gray-900 p-8 rounded-2xl shadow-xl fade-in">
+                    <h3 class="text-2xl font-bold mb-2 text-sky-400">Secure Web App Dev</h3>
+                    <p class="text-gray-400 mb-4">
+                        Developed a web application with a focus on security best practices, including input sanitization, secure authentication, and HTTPS enforcement.
+                    </p>
+                    <a href="#" class="text-sky-400 hover:text-sky-300 transition-colors font-semibold">View Project <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+                <!-- Project 2 -->
+                <div class="bg-gray-900 p-8 rounded-2xl shadow-xl fade-in" style="animation-delay: 0.2s;">
+                    <h3 class="text-2xl font-bold mb-2 text-sky-400">Network Traffic Analysis</h3>
+                    <p class="text-gray-400 mb-4">
+                        Used tools like Wireshark and Snort to analyze network traffic and identify potential threats and vulnerabilities in a simulated environment.
+                    </p>
+                    <a href="#" class="text-sky-400 hover:text-sky-300 transition-colors font-semibold">View Project <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+                <!-- Project 3 -->
+                <div class="bg-gray-900 p-8 rounded-2xl shadow-xl fade-in" style="animation-delay: 0.4s;">
+                    <h3 class="text-2xl font-bold mb-2 text-sky-400">Vulnerability Scanning</h3>
+                    <p class="text-gray-400 mb-4">
+                        Conducted vulnerability assessments on various systems using tools like Nmap and OpenVAS to identify and report security flaws.
+                    </p>
+                    <a href="#" class="text-sky-400 hover:text-sky-300 transition-colors font-semibold">View Project <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-sky-400 fade-in">Get in Touch</h2>
+            <form action="#" class="max-w-xl mx-auto space-y-6 fade-in">
+                <input type="text" placeholder="Your Name" class="w-full p-4 rounded-xl bg-gray-800 text-white border border-gray-700 focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-all duration-300" required>
+                <input type="email" placeholder="Your Email" class="w-full p-4 rounded-xl bg-gray-800 text-white border border-gray-700 focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-all duration-300" required>
+                <textarea placeholder="Your Message" rows="5" class="w-full p-4 rounded-xl bg-gray-800 text-white border border-gray-700 focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-all duration-300" required></textarea>
+                <button type="submit" class="w-full p-4 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-xl shadow-lg hover:shadow-sky-500/50 transition-all duration-300">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-center py-6 text-gray-500 text-sm">
+        <p>&copy; 2023 Hariprakash P. All rights reserved.</p>
+        <p class="text-xs text-gray-600 mt-1">Created by ktm</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu after clicking a link
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in and skill bar animations
+        const sections = document.querySelectorAll('.fade-in, .skill-bar');
+        const observerOptions = {
+            root: null,
+            threshold: 0.1,
+            rootMargin: "0px"
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('skill-bar')) {
+                        const level = entry.target.dataset.skillLevel;
+                        entry.target.style.width = level + '%';
+                    } else {
+                        entry.target.classList.add('animated'); // A simple class to trigger CSS animation
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Mobile menu toggle functionality
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Typing effect for the hero section
+        const titleElement = document.getElementById('job-title');
+        const text = titleElement.textContent;
+        titleElement.textContent = '';
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                titleElement.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+
+        // PDF download function
+        function downloadPdf() {
+            // Get the entire body content to create a PDF from
+            const element = document.body;
+
+            // Define the options for the PDF generation
+            const options = {
+                margin: 10,
+                filename: 'Hariprakash-P-Portfolio.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Use html2pdf to generate and download the PDF
+            html2pdf().from(element).set(options).save();
+        }
+
+        window.onload = function() {
+            // Start the typing effect and fade-in animations on window load
+            typeWriter();
+            
+            // Attach event listener for the PDF download button
+            document.getElementById('download-pdf-button').addEventListener('click', downloadPdf);
+            document.getElementById('download-pdf-button-mobile').addEventListener('click', downloadPdf);
+        };
+    </script>
+</body>
+</html>
