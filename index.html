@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hariprakash P - Cybersecurity Portfolio</title>
+    <title>Karthigairaj N - Cybersecurity Portfolio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for icons -->
@@ -21,20 +21,20 @@
         }
 
         /* Custom animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes fadeInScaleUp {
+            from { opacity: 0; transform: translateY(20px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
         
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeIn 0.8s ease-out forwards;
+            animation: fadeInScaleUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
         }
 
         .skill-bar {
             width: 0;
-            transition: width 1.5s ease-out;
+            transition: width 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         .typing-effect::after {
@@ -50,8 +50,14 @@
         /* Hero section specific styles for animation */
         #hero .animate-in {
             opacity: 0;
-            animation: fadeIn 1s ease-out forwards;
+            animation: slideInFromTop 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
         }
+
+        @keyframes slideInFromTop {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         #hero h1 { animation-delay: 0.2s; }
         #hero h2 { animation-delay: 0.7s; }
         #hero .animated-bar {
@@ -66,7 +72,6 @@
             from { width: 0; }
             to { width: 100%; }
         }
-        
     </style>
 </head>
 <body class="antialiased">
@@ -74,7 +79,7 @@
     <!-- Header & Navigation -->
     <header class="bg-gray-900 bg-opacity-70 backdrop-blur-md fixed top-0 w-full z-50 shadow-lg">
         <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#" class="text-2xl font-bold text-sky-400">Hariprakash P</a>
+            <a href="#" class="text-2xl font-bold text-sky-400">Karthigairaj N</a>
             <div class="space-x-4 hidden md:block">
                 <a href="#about" class="hover:text-sky-400 transition-colors">About</a>
                 <a href="#certifications" class="hover:text-sky-400 transition-colors">Certifications</a>
@@ -108,8 +113,8 @@
     <!-- Hero Section -->
     <section id="hero" class="min-h-screen flex items-center justify-center p-6 bg-cover bg-center" style="background-image: url('https://placehold.co/1200x800/0f172a/94a3b8?text=');">
         <div class="text-center text-white bg-gray-900 bg-opacity-70 p-8 md:p-12 rounded-2xl shadow-2xl backdrop-blur-sm max-w-4xl w-full">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 animate-in">Hariprakash P</h1>
-            <div class="text-xl md:text-3xl font-semibold text-sky-400 animate-in">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 animate-in">Karthigairaj N</h1>
+            <div class="text-xl md:text-3xl font-semibold text-sky-400 animate-in" style="animation-delay: 0.2s;">
                 <span id="job-title" class="typing-effect">Cybersecurity Student & Aspiring Ethical Hacker</span>
             </div>
             <div class="animated-bar mx-auto w-1/4"></div>
@@ -251,7 +256,7 @@
     </section>
 
     <footer class="bg-gray-900 text-center py-6 text-gray-500 text-sm">
-        <p>&copy; 2023 Hariprakash P. All rights reserved.</p>
+        <p>&copy; 2023 Karthigairaj N. All rights reserved.</p>
         <p class="text-xs text-gray-600 mt-1">Created by ktm</p>
     </footer>
 
@@ -324,7 +329,7 @@
             // Define the options for the PDF generation
             const options = {
                 margin: 10,
-                filename: 'Hariprakash-P-Portfolio.pdf',
+                filename: 'Karthigairaj-N-Portfolio.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 2 },
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
@@ -344,4 +349,4 @@
         };
     </script>
 </body>
-</html>
+    </html>
